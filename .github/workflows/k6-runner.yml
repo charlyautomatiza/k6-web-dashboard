@@ -15,8 +15,9 @@ jobs:
           filename: ./src/thresholds.js
         env:
           K6_WEB_DASHBOARD: true
-          K6_WEB_DASHBOARD_EXPORT: performance-report.html
-
+          K6_WEB_DASHBOARD_EXPORT: index.html
+      - name: List of files
+        run: ls -ltr
       - name: Deploy to GitHub Pages
         uses: actions/checkout@v4
         with:
@@ -24,7 +25,7 @@ jobs:
           path: ./deployed-pages
 
       - name: Move HTML report to deployment folder
-        run: mv performance-report.html ./deployed-pages
+        run: mv index.html ./deployed-pages
 
       - name: Commit and push changes to gh-pages branch
         run: |
