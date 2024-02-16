@@ -14,7 +14,7 @@ jobs:
           filename: ./src/thresholds.js
         env:
           K6_WEB_DASHBOARD: true
-          K6_WEB_DASHBOARD_EXPORT: performance-report.html
+          K6_WEB_DASHBOARD_EXPORT: ./performance-report/k6-report.html
 
   deploy:
     name: Deploy to GitHub Pages
@@ -31,5 +31,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3.9.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./performance-report-html
+          publish_dir: ./performance-report
           keep_files: true
